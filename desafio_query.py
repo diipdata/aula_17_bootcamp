@@ -4,7 +4,7 @@ from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy import func
 
-# 1. Definição dos Modelos
+## 1. Definição dos Modelos
 
 Base = declarative_base()
 
@@ -28,7 +28,7 @@ class Produto(Base):
     fornecedor = relationship('Fornecedor')
 
 
-# 2. Criando o Banco de Dados e as Tabelas
+## 2. Criando o Banco de Dados e as Tabelas
 
 # Conectar ao SQLite em memória
 engine = create_engine('sqlite:///desafio.db', echo=True)
@@ -41,7 +41,7 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 
-# 3. Criando um query
+## 3. Criando um query
 
 resultado = session.query(
     Fornecedor.nome,

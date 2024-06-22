@@ -3,7 +3,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy.exc import SQLAlchemyError
 
-# 1. Definição dos Modelos
+## 1. Definição dos Modelos
 
 Base = declarative_base()
 
@@ -27,7 +27,7 @@ class Produto(Base):
     fornecedor = relationship('Fornecedor')
 
 
-# 2. Criando o Banco de Dados e as Tabelas
+## 2. Criando o Banco de Dados e as Tabelas
 
 # Conectar ao SQLite em memória
 engine = create_engine('sqlite:///desafio.db', echo=True)
@@ -40,7 +40,7 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 
-# 3. Inserindo informações nas Tabelas com contexto with
+## 3. Inserindo informações nas Tabelas com contexto with
 
 # FORNECEDORES
 try:
@@ -54,7 +54,7 @@ try:
         ]
         session.add_all(fornecedores)
         session.commit()
-except SQLAlchemyError as e:
+except SQLAlchemyError as e: # Capturando exceções do SQLAlchemy
     print(f"Erro ao inserir fornecedor: {e}")
 
 # PRODUTOS
